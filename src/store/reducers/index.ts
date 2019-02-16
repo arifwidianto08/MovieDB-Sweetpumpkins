@@ -1,15 +1,15 @@
 import { combineReducers } from "redux";
 import { AuthActions } from "./auth/props";
-import { LettersActions } from "./letters/props";
+import { MovieActions } from "./movie/props";
 import AuthReducer from "./auth/auth";
-import LetterReducer from "./letters/letter";
+import MoviesReducer from "./movie/movie";
 import { History } from "history";
 import { RouterState, connectRouter } from "connected-react-router";
 
 const rootReducers = (history: History) =>
   combineReducers({
     auth: AuthReducer,
-    letter: LetterReducer,
+    movies: MoviesReducer,
     router: connectRouter(history)
   });
 
@@ -18,5 +18,5 @@ export interface State {
   count: number;
   router: RouterState;
 }
-export type AppRootActions = AuthActions | LettersActions;
+export type AppRootActions = AuthActions | MovieActions;
 export type AppRootState = ReturnType<typeof rootReducers>;

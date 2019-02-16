@@ -1,36 +1,19 @@
-import React, { useEffect } from "react";
-import Routes from "./routes/route";
-import Loginpage from "./containers/Loginpage/Loginpage";
-import { connect } from "react-redux";
-import { localAuthListener } from "../store/actions/auth";
+// Main.js
 
-interface MainProps {
-  authorized: any;
-  localAuthListener: any;
+import React from "react";
+import "../assets/style/Main.css";
+import Navigation from "./components/Navigation";
+import Movies from "./containers/Movie/Movies";
+
+class Main extends React.Component {
+  render() {
+    return (
+      <section className="main">
+        <Navigation />
+        <Movies />
+      </section>
+    );
+  }
 }
-const Main = (props: MainProps) => {
-  // Trigger Auth Listener to Detect Sign In Activity
-  useEffect(() => {
-    props.localAuthListener();
-  });
 
-  const { authorized } = props;
-  return authorized ? <Routes /> : <Loginpage />;
-};
-
-const mapStateToProps = (state: any) => {
-  return {
-    authorized: state.auth.authorized
-  };
-};
-
-const mapDispatchToProps = (dispatch: any) => {
-  return {
-    localAuthListener: () => dispatch(localAuthListener())
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Main);
+export default Main;

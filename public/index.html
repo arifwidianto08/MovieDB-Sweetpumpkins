@@ -22,11 +22,32 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>Silolas | Kelola Surat Anda</title>
+    <title>MovieDB Learn | Sweetpumpkins</title>
+
+    <style>
+      #root {
+        height: 100%;
+        min-height: 100vh;
+        overflow: hidden;
+        background-color: #f5f5f5;
+      }
+
+      .loading {
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        position: absolute;
+      }
+    </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div id="root">
+      <div class="loading">
+        Loading...
+      </div>
+    </div>
 
     <!--
       This HTML file is a template.
